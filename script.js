@@ -1,8 +1,20 @@
-function shortcut(s1, s2) {
-  // your code here
+// Function to calculate byte size of a string
+function byteSize(str) {
+  return new Blob([str]).size;
 }
 
-// Do not change the code below.
-const s1 = prompt("Enter s1:");
-const s2 = prompt("Enter s2:");
-alert(shortcut(s1, s2));
+// Test cases
+console.log(byteSize('hello world')); // 11
+console.log(byteSize('안녕하세요'));     // 15
+console.log(byteSize(''));            // 0
+
+// Take input from user (Node.js)
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+readline.question("Enter a string: ", (input) => {
+  console.log("Byte size:", byteSize(input));
+  readline.close();
+});
